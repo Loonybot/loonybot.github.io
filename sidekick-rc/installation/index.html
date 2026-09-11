@@ -263,7 +263,7 @@
   
     
   
-  Additional Tools
+  More Tools
 
         </a>
       </li>
@@ -379,8 +379,6 @@
       
         
       
-        
-      
     
     
     
@@ -452,7 +450,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    Defining Sidekick RC
   
 
     
@@ -533,10 +531,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-library-installation" class="md-nav__link">
+  <a href="#1-install-the-library-if-someone-on-your-team-hasnt-already" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Library Installation
+        1. Install the Library (If Someone on Your Team Hasn't Already)
       
     </span>
   </a>
@@ -544,10 +542,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-application-installation" class="md-nav__link">
+  <a href="#2-install-the-application-on-your-pc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Application Installation
+        2. Install the Application on Your PC
       
     </span>
   </a>
@@ -555,10 +553,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verifying-your-install" class="md-nav__link">
+  <a href="#verify-your-install" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Verifying Your Install
+        Verify Your Install
       
     </span>
   </a>
@@ -589,34 +587,6 @@
     
   
     Usage
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../disabling/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Disabling
   
 
     
@@ -758,7 +728,7 @@
   <span class="md-ellipsis">
     
   
-    Additional Tools
+    More Tools
   
 
     
@@ -775,7 +745,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Additional Tools
+    More Tools
   
 
           </label>
@@ -1083,10 +1053,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-library-installation" class="md-nav__link">
+  <a href="#1-install-the-library-if-someone-on-your-team-hasnt-already" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Library Installation
+        1. Install the Library (If Someone on Your Team Hasn't Already)
       
     </span>
   </a>
@@ -1094,10 +1064,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-application-installation" class="md-nav__link">
+  <a href="#2-install-the-application-on-your-pc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Application Installation
+        2. Install the Application on Your PC
       
     </span>
   </a>
@@ -1105,10 +1075,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verifying-your-install" class="md-nav__link">
+  <a href="#verify-your-install" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Verifying Your Install
+        Verify Your Install
       
     </span>
   </a>
@@ -1133,15 +1103,11 @@
 
 
 <h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h1>
-<p>There are two components of <strong>Sidekick</strong> to install: </p>
-<ol>
-<li>The Android Studio library;</li>
-<li>The PC application.</li>
-</ol>
-<h2 id="1-library-installation">1. Library Installation<a class="headerlink" href="#1-library-installation" title="Permanent link">&para;</a></h2>
-<p>Go to the <a href="https://github.com/Loonybot/SidekickRC/releases">Loonybot GitHub SidekickRC releases</a> page and find the newest version labeled "Sidekick RC Library". Follows the installation instructions there. </p>
-<p>If you have a minimal <strong>build.gradle</strong>, your file should look like the following, with the
-changes highlighted. You might have many additional lines from other software packages.</p>
+<p>Here we detail how to install the two components of <strong>Sidekick</strong>: the library and the PC application.</p>
+<h2 id="1-install-the-library-if-someone-on-your-team-hasnt-already">1. Install the Library (If Someone on Your Team Hasn't Already)<a class="headerlink" href="#1-install-the-library-if-someone-on-your-team-hasnt-already" title="Permanent link">&para;</a></h2>
+<p>Go to the <a href="https://github.com/Loonybot/SidekickRC/releases">Loonybot GitHub SidekickRC releases</a> page and find the newest version labeled "Sidekick RC Library". Follow the installation instructions there. </p>
+<p>If you had a minimal <strong>build.gradle</strong>, your resulting file should look like the following, with the changes highlighted. 
+Your configuration may have many additional lines, but these lines should all be present.</p>
 <div class="highlight"><span class="filename">Changes for a minimal build.gradle</span><pre><span></span><code><span class="n">apply</span><span class="w"> </span><span class="nl">plugin:</span><span class="w"> </span><span class="s1">'com.android.application'</span>
 
 <span class="n">apply</span><span class="w"> </span><span class="nl">from:</span><span class="w"> </span><span class="s1">'../build.common.gradle'</span>
@@ -1164,19 +1130,38 @@ changes highlighted. You might have many additional lines from other software pa
 <span class="hll"><span class="w">    </span><span class="n">implementation</span><span class="w"> </span><span class="s1">'com.github.Loonybot:SidekickRC:lib-v??.??.??'</span>
 </span><span class="o">}</span>
 </code></pre></div>
-<p>Note that you shouldn't actually see <code>v??.??.??</code> in your <strong>build.gradle</strong> because you'll have used 
-the version number of the latest library released on <a href="https://github.com/Loonybot/SidekickRC/releases">GitHub</a>.</p>
-<p>Don't forget to sync your project with the updated Gradle file by pressing the Elephant icon in the top-right corner of Android Studio.</p>
-<h2 id="2-application-installation">2. Application Installation<a class="headerlink" href="#2-application-installation" title="Permanent link">&para;</a></h2>
-<p>If you have a Windows PC, go to the <a href="https://github.com/Loonybot/SidekickRC/releases">Loonybot GitHub SidekickRC releases</a> page and find the newest version labeled "Sidekick RC application". Follows those installation instructions. </p>
-<p>If you have a Mac PC, sorry, you'll have to wait until we port to Mac.</p>
-<h2 id="verifying-your-install">Verifying Your Install<a class="headerlink" href="#verifying-your-install" title="Permanent link">&para;</a></h2>
-<p>Once you've installed the <strong>Sidekick</strong> application and are actively running robot code that includes the <strong>Sidekick</strong> library, connect to the robot (use the <code>Connect</code> button in the application if you're not already Wi-Fi connected). 
-If everything is working correctly, you should see a green "Connected" status for "Sidekick" in the lower-right corner of the window. 
+<p>Note that you shouldn't actually see <code>v??.??.??</code> in your <strong>build.gradle</strong> file because you'll have used the version number of the latest library released on <a href="https://github.com/Loonybot/SidekickRC/releases">GitHub</a>.</p>
+<p>Once you're done modifying <strong>build.gradle</strong>, don't forget to sync your project with the updated Gradle file by pressing the Elephant icon in the top-right corner of Android Studio.</p>
+<h2 id="2-install-the-application-on-your-pc">2. Install the Application on Your PC<a class="headerlink" href="#2-install-the-application-on-your-pc" title="Permanent link">&para;</a></h2>
+<p>If you have a Windows PC, go to the <a href="https://github.com/Loonybot/SidekickRC/releases">Loonybot GitHub SidekickRC releases</a> page and find the newest version labeled "Sidekick RC application". Click <code>SidekickRCsetup.exe</code> under "Assets" to install Sidekick RC for Windows.</p>
+<p>If you have a Mac PC, sorry, you'll have to wait until we port.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you're looking for the install package on GitHub, the Assets tab may be collapsed:</p>
+<p><img alt="Collapsed assets" src="../../assets/install-app-no-assets.png" width="150" /></p>
+<p>Click the "Assets" text to expand it:</p>
+<p><img alt="Expanded assets" src="../../assets/install-app-with-assets.png" /></p>
+</div>
+<p>Because the <strong>Sidekick</strong> application is new, Windows Defender may flag it as an unrecognized app when you run SidekickRCsetup.exe. If you see a "Windows protected your PC" dialog, click on the "<strong>More Info</strong>" button and verify that the publisher is James Goossen in Sammamish (that's me!). If it is, press "<strong>Run anyway</strong>" to install. Once enough people have installed Sidekick, Defender will start recognizing it and the warning will no longer appear.</p>
+<p><img alt="Defender warning" src="../../assets/install-defender-warning.png" width="300" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you use Microsoft Edge as your browser and it says "SidekickRCsetup.exe isn't commonly downloaded", you'll have additional steps to take. Click <code>⋯</code> to the right of that message and then select "Keep".</p>
+<p><img alt="Edge download" src="../../assets/install-edge-keep.png" width="400" /></p>
+<p>Then you'll likely see <em>another</em> dialog:</p>
+<p><img alt="Edge trust" src="../../assets/install-edge-trust.png" width="300" /></p>
+<p>Click on the down-arrow portion of "Delete" to reveal another option:</p>
+<p><img alt="Edge" src="../../assets/install-edge-keep-anyway.png" width="300" /></p>
+<p>Select "Keep anyway" and then it should install.</p>
+</div>
+<h2 id="verify-your-install">Verify Your Install<a class="headerlink" href="#verify-your-install" title="Permanent link">&para;</a></h2>
+<p>Once you've installed the <strong>Sidekick</strong> application and are running robot code that includes the <strong>Sidekick</strong> library, connect to the robot. 
+(Use the <code>Connect</code> button in the app if you're not already Wi-Fi connected.) 
+If everything is working correctly, you should see a green "Connected" status for "Sidekick" in the status bar at the bottom-right edge of the window. 
 Congratulations, Sidekick is enabled and working on your robot!</p>
 <p>If you don't see "Connected" for either "Wi-Fi" or "Sidekick", that means that your PC is not connected to the robot. Try pressing the <code>Connect</code> button to establish a Wi-Fi connection.</p>
-<p>If you see "Connected" for "Wi-Fi" but not for "Sidekick", then the library is not properly installed or enabled on the robot. 
-Verify that synced with the updated Gradle file via the Elephant icon, that your code built properly, and that you were able to successfully deploy the result to the robot.</p>
+<p>If you see "Connected" for "Wi-Fi" but not for "Sidekick", then the library is not properly installed or not enabled on the robot. 
+Verify that you synced with the updated Gradle file via the Elephant icon, that your code built properly, and that you were able to successfully deploy the updated code to the robot.</p>
 
 
 
@@ -1214,7 +1199,7 @@ Verify that synced with the updated Gradle file via the Elephant icon, that your
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview">
+          <a href="../overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Defining Sidekick RC">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1224,7 +1209,7 @@ Verify that synced with the updated Gradle file via the Elephant icon, that your
                 Previous
               </span>
               <div class="md-ellipsis">
-                Overview
+                Defining Sidekick RC
               </div>
             </div>
           </a>

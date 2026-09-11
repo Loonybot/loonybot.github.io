@@ -25,7 +25,7 @@
     
     
       
-        <title>Overview - Loonybot Software</title>
+        <title>Defining Sidekick RC - Loonybot Software</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#what-is-sidekick-rc" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Defining Sidekick RC
             
           </span>
         </div>
@@ -263,7 +263,7 @@
   
     
   
-  Additional Tools
+  More Tools
 
         </a>
       </li>
@@ -379,8 +379,6 @@
       
         
       
-        
-      
     
     
     
@@ -454,24 +452,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -479,7 +459,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    Defining Sidekick RC
   
 
     
@@ -488,36 +468,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-sidekick-rc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What is Sidekick RC?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -567,34 +517,6 @@
     
   
     Usage
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../disabling/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Disabling
   
 
     
@@ -736,7 +658,7 @@
   <span class="md-ellipsis">
     
   
-    Additional Tools
+    More Tools
   
 
     
@@ -753,7 +675,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Additional Tools
+    More Tools
   
 
           </label>
@@ -1054,25 +976,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-sidekick-rc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What is Sidekick RC?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1088,32 +991,29 @@
 
 
 
-<h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
-<h2 id="what-is-sidekick-rc">What is Sidekick RC?<a class="headerlink" href="#what-is-sidekick-rc" title="Permanent link">&para;</a></h2>
-<p><strong>Sidekick RC</strong> is a tool for FTC robotics that essentially does three things:</p>
+<h1 id="what-is-sidekick-rc">What is Sidekick RC?<a class="headerlink" href="#what-is-sidekick-rc" title="Permanent link">&para;</a></h1>
+<p><strong>Sidekick RC</strong> is a tool for FTC robotics that has three different aspects:</p>
 <ol>
-<li>It manages the Wi-Fi and Android Debug Bridge (ADB) connection between your laptop and the robot, making it easy to push new code via Android Studio or run tools like FTC Dashboard.</li>
-<li>It enables real-time graphing of data such as the Control Hub's voltage, current draw, and 
-temperature, while your robot runs.</li>
-<li>It captures a ton of data about every run that can be examined later.</li>
+<li>It manages the Wi-Fi and Android Debug Bridge (ADB) connection between your laptop and the robot, making it easy to push code from Android Studio or run tools like FTC Dashboard.</li>
+<li>It enables real-time graphing of data such as the Control Hub's voltage, current draw, and temperature, while your robot runs.</li>
+<li>It captures a ton of data about every opMode run that can be examined later.</li>
 </ol>
 <p>It's comprised of two components:</p>
 <ol>
 <li>A library that you include in your team's robot code.</li>
-<li>A PC application that you install on your laptop. (Only Windows is supported for now. If you have a Mac,
-sorry: that version is coming later.)</li>
+<li>A PC application that you install on your laptop. </li>
 </ol>
-<p>The library portion is responsible for the following:</p>
+<p>The library is responsible for:</p>
 <ul>
-<li>Every time you run an opMode, the library automatically records a firehose of data about 
-the run. </li>
-<li>It monitors a communication channel with the <strong>Sidekick</strong> application to transfer data.</li>
+<li>Automatically recording a mass of data every time you run an opMode.</li>
+<li>Monitoring and transferring data via the communication channel to the <strong>Sidekick</strong> application.</li>
 </ul>
 <p>The application is used for:</p>
 <ul>
 <li>Establishing a Wi-Fi and ADB connection between the PC and robot.</li>
 <li>Graphing data in real-time.</li>
-<li>After-the-fact (<em>postmortem</em>) analysis of the data from a robot's run.</li>
+<li>Transferring data from from a robot's run to the PC.</li>
+<li>Analyzing the data after-the-fact (<em>postmortem analysis</em>).</li>
 </ul>
 
 
@@ -1152,7 +1052,7 @@ the run. </li>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: About">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introducing Sidekick RC">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1162,7 +1062,7 @@ the run. </li>
                 Previous
               </span>
               <div class="md-ellipsis">
-                About
+                Introducing Sidekick RC
               </div>
             </div>
           </a>
