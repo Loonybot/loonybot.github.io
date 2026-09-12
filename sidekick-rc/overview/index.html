@@ -996,25 +996,27 @@
 <ol>
 <li>It manages the Wi-Fi and Android Debug Bridge (ADB) connection between your laptop and the robot, making it easy to push code from Android Studio or run tools like FTC Dashboard.</li>
 <li>It enables real-time graphing of data such as the Control Hub's voltage, current draw, and temperature, while your robot runs.</li>
-<li>It captures a ton of data about every opMode run that can be examined later.</li>
+<li>It captures a ton of data every time you run an opMode that can be examined later.</li>
 </ol>
 <p>It's comprised of two components:</p>
 <ol>
-<li>A library that you include in your team's robot code.</li>
-<li>A PC application that you install on your laptop. </li>
-</ol>
-<p>The library is responsible for:</p>
+<li>
+<p>A <strong>library</strong> that you include in your team's robot code. The library is responsible for:</p>
 <ul>
 <li>Automatically recording a mass of data every time you run an opMode.</li>
 <li>Monitoring and transferring data via the communication channel to the <strong>Sidekick</strong> application.</li>
 </ul>
-<p>The application is used for:</p>
+</li>
+<li>
+<p>A PC <strong>application</strong> that you install on your laptop. The application is used for:</p>
 <ul>
 <li>Establishing a Wi-Fi and ADB connection between the PC and robot.</li>
 <li>Graphing data in real-time.</li>
 <li>Transferring data from from a robot's run to the PC.</li>
 <li>Analyzing the data after-the-fact (<em>postmortem analysis</em>).</li>
 </ul>
+</li>
+</ol>
 
 
 
