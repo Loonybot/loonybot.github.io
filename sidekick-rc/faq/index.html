@@ -992,7 +992,34 @@
 
 
 <h1 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h1>
-<p>Content coming soon.</p>
+<details class="faq">
+<summary>How do I report a Sidekick bug?</summary>
+<p>If you have a <code>.sidekick</code> capture file that causes <strong>Sidekick</strong> to crash or that captures a run-time failure, please email it to <a href="mailto:bugreport@loonybot.com">bugreport@loonybot.com</a> along with a description of the problem. 
+We hate crashes but love bug reports that can reproduce them, so we always make it our top priority to fix such bugs when we get them. 
+However, please consider your privacy: <strong>Sidekick</strong> itself does not save any <em>Personally Identifiable Information</em>, but your opMode may output PII to the data that is recorded.
+Please be sure to send us only the <code>.sidekick</code> file and none of the video files.</p>
+<p>Bugs and suggestions can also be filed on <a href="https://github.com/Loonybot/SidekickRC/issues">GitHub</a>.</p>
+</details>
+<details class="faq">
+<summary>My robot spontaneously reboots and Sidekick only shows Logcat data. What can I do?</summary>
+<p>Problems where the robot reboots in the middle of an opMode are tough to fix.
+<strong>Sidekick</strong> can't cleanly shut down and save its capture data when this happens, so you lose a lot of context. </p>
+<p><strong>Sidekick</strong> <em>does</em> automatically show Logcat data leading up to the crash, however. 
+Logcat data is still available because it uses a system mechanism that frequently flushes its data to permanent storage so it's more impervious to memory getting wiped. <strong>Sidekick</strong> shows all Logcat data from boot to the last message recorded. </p>
+<p>If your problem is reproducible, you can add Logcat messages to provide context for what the robot is doing that might provoke the crash when the crash occurs. 
+For example, you might instrument your code with Logcat messages like the following:
+<div class="highlight"><pre><span></span><code><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">TAG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Crash"</span><span class="p">;</span><span class="w"> </span><span class="c1">// Identifier for finding our crash</span>
+<span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">"About to launch projectile"</span><span class="p">);</span>
+<span class="c1">// ...launch code is here...</span>
+<span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">"About to move arm to position %.2f"</span><span class="p">,</span><span class="w"> </span><span class="n">armPosition</span><span class="p">));</span>
+<span class="c1">// ...move code is here...</span>
+</code></pre></div></p>
+<p>When examining the Logcat data in <strong>Sidekick</strong>, you can double-click on your tag ("Crash" in our example) in the left-side pane to focus just on your own output.</p>
+<p>We've found that, in practice, Logcat will typically lose around 100ms of data just prior to a crash so you can't be sure you'll see the very last output. Think of the last message you see as more of a rough hint as to the time rather than a guarantee that it was really the last code to run before the crash.</p>
+<p>We've found that these types of crashes occurred either because of power spikes we caused that make the system's voltage to dip too low, or because we somehow caused a hardware device to crash (as by overheating it). 
+For the former case, in addition to adding Logcat output, you should graph your voltage and current use while trying to reproduce the crash scenario--you may note bad behavior even if the robot doesn't crash.</p>
+<p>Be warned, you may have found a new way to cause a reboot that we haven't seen before. Good luck!</p>
+</details>
 
 
 

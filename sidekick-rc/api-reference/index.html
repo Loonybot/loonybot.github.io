@@ -598,18 +598,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#skdisable" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sk.disable()
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sk.disable()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#sksuppressissues" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -619,9 +607,26 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#sksetretentiondays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sk.setRetentionDays()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skregisterserializer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sk.registerSerializer()'
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1070,18 +1075,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#skdisable" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sk.disable()
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sk.disable()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#sksuppressissues" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1091,9 +1084,26 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#sksetretentiondays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sk.setRetentionDays()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skregisterserializer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sk.registerSerializer()'
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1116,12 +1126,80 @@
 
 <h1 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
 <p><strong>Sidekick</strong> has optional APIs that are callable from your Java code. 
-Use them to configure <strong>Sidekick</strong> or supplement the recorded data.</p>
-<h2 id="skenable"><code>Sk.enable()</code><a class="headerlink" href="#skenable" title="Permanent link">&para;</a></h2>
-<p>Enable <strong>Sidekick</strong> and inhibit its enable/disable opMode. This must be called from an <code>@OnCreate</code> method.</p>
-<h2 id="skdisable"><code>Sk.disable()</code><a class="headerlink" href="#skdisable" title="Permanent link">&para;</a></h2>
-<p>Disable <strong>Sidekick</strong> and inhibit its enable/disable opMode. This must be called from an <code>@OnCreate</code> method.</p>
-<h3 id="sksuppressissues"><code>Sk.suppressIssues()</code><a class="headerlink" href="#sksuppressissues" title="Permanent link">&para;</a></h3>
+Use them to configure <strong>Sidekick</strong> or add data to the capture. All of the APIs are exposed as <code>public static</code> methods of the <code>Sk</code> class. </p>
+<h2 id="skenable">Sk.enable()<a class="headerlink" href="#skenable" title="Permanent link">&para;</a></h2>
+<p><code>public static void enable(boolean enable);</code></p>
+<p>Enable or disable <strong>Sidekick</strong> and inhibit its enable/disable opMode. </p>
+<p>When <strong>Sidekick</strong> is disabled, all of its functionality and methods (other than <code>Sk.enable()</code>) become <em>no-ops</em>.</p>
+<p>Calling this method (for either enabling or disabling) inhibits the <strong>Sidekick</strong> enable/disable opMode from getting added to your opMode list.</p>
+<p>Because <strong>Sidekick</strong> needs to know this state early in the boot process, you can only call <code>Sk.enable()</code> from a method marked with the <code>@OnCreate</code> annotation, like this:</p>
+<div class="highlight"><span class="filename">Disable Sidekick</span><pre><span></span><code><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">"unused"</span><span class="p">)</span>
+<span class="kd">class</span> <span class="nc">ConfigureSidekick</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@OnCreate</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">Context</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Sk</span><span class="p">.</span><span class="na">disable</span><span class="p">();</span><span class="w"> </span><span class="c1">// Temporarily disable Sidekick</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This <code>@OnCreate</code> declaration can appear anywhere in your code and will apply globally for all of your opModes. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be very careful of any code placed within the <code>@OnCreate</code> method as it executes during robot startup. If it raises an uncaught exception, it will cause an endless cycle of reboots and you'll need to reset the robot via means such as the <code>REV Hardware Client</code>.</p>
+</div>
+<h2 id="sksuppressissues">Sk.suppressIssues()<a class="headerlink" href="#sksuppressissues" title="Permanent link">&para;</a></h2>
+<p><code>public static void suppressIssues(int... issueCodes);</code></p>
+<p>Suppress specific warnings, errors and suggestions from showing up in Dr. Robot's tab. The function takes a list of issue codes to disable. For example, to disable issues 101 and 107, specify:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Sk</span><span class="p">.</span><span class="na">suppressIssues</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">107</span><span class="p">);</span>
+</code></pre></div>
+<p>This method can be called from <code>@OnCreate</code> or from an opMode.</p>
+<h2 id="sksetretentiondays">Sk.setRetentionDays()<a class="headerlink" href="#sksetretentiondays" title="Permanent link">&para;</a></h2>
+<p><code>public static void setRetentionDays(int days);</code></p>
+<p>Set the number of days that <strong>Sidekick</strong> retains captures on the robot's internal storage.
+By default, <strong>Sidekick</strong> stores captures for up to 7 days.
+Regardless of this setting, <strong>Sidekick</strong> will try to free up at least 100 MB of storage at the beginning of every opMode by deleting the oldest captures.</p>
+<h2 id="skregisterserializer">Sk.registerSerializer()'<a class="headerlink" href="#skregisterserializer" title="Permanent link">&para;</a></h2>
+<p><code>public static &lt;T&gt; void registerSerializer(T sample, String format, Serializer&lt;T&gt; serializer);</code></p>
+<p>Register a serializer to enable <strong>Sidekick</strong> to decode class objects when it saves (<em>serializes</em>) instances to the capture file and later displays them in the app for analysis.</p>
+<p>Let's say you define your own <code>Target</code> class that tracks the distance and robot-relative angle to a target:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Target</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">distance</span><span class="p">;</span><span class="w"> </span><span class="c1">// Inches</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">angle</span><span class="p">;</span><span class="w"> </span><span class="c1">// Radians</span>
+<span class="p">}</span>
+<span class="n">Target</span><span class="w"> </span><span class="n">target</span><span class="p">;</span><span class="w"> </span>
+</code></pre></div>
+<p>If you used the <code>target</code> instance when writing it to <strong>Sidekick</strong>, you get an ugly result:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Sk</span><span class="p">.</span><span class="na">note</span><span class="p">(</span><span class="s">"Basket target: "</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">);</span>
+</code></pre></div>
+<p>The <strong>Sidekick</strong> will show something like this:</p>
+<p><code>Basket target:</code></p>
+<p>You could avoid this problem by always referring to the component fields, e.g.:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Sk</span><span class="p">.</span><span class="na">note</span><span class="p">(</span><span class="s">"Basket target: "</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">.</span><span class="na">distance</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">.</span><span class="na">angle</span><span class="p">);</span>
+</code></pre></div>
+<p>Alternatively, you could define a <code>toString()</code> method for your class that converts an instance to a string, and <strong>Sidekick</strong> will use that.</p>
+<p>The preferred solution, though, is to register a <em>serializer</em> that tells <strong>Sidekick</strong> how to directly decode the components of a class. 
+You can do that like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Sk</span><span class="p">.</span><span class="na">registerSerializer</span><span class="p">(</span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">Target</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span>
+<span class="w">    </span><span class="s">"distance=in, angle=rad"</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">x</span><span class="o">-&gt;</span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="p">{</span><span class="n">x</span><span class="p">.</span><span class="na">distance</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="na">angle</span><span class="p">});</span>
+</code></pre></div>
+<p><code>Sk.registerSerializer</code> gives <strong>Sidekick</strong> a <code>sample</code> instance, a <code>format</code> string, and a  <code>serializer</code> whose function takes an instance of that type and returns an array of primitive types. </p>
+<p>The <code>sample</code> argument is first used by <strong>Sidekick</strong> to determine the type of the class to be serialized, and then it's used to call the <code>serializer</code> function to determine the count and types of the component variables so that it can pre-compile the serialization process.
+The value of <code>sample</code> can be anything at all, so long as the <code>serializer</code> function returns valid values for it.</p>
+<p>The <code>format</code> string tells <strong>Sidekick</strong> the names and optionally the units of every component variable. 
+It's fine not to specify units--for example, a <code>Point</code> might be "x=, y=".</p>
+<p>A <code>serializer</code> implements the Serializer interface. 
+Its function takes an instance of the object and returns the values of the component variables as an array. 
+The types of the values can be anything, but its preferable to use primitive types like <code>double</code>, <code>int</code>, <code>boolean</code>, <code>String</code>, etc. 
+A strict requirement for <code>serializer</code> is that it must always return the same sized array regardless of input, and the types of the values within the array must always be the same.</p>
+<p>The benefits of a serializer over <code>toString()</code> are:</p>
+<ul>
+<li><strong>Sidekick</strong> can automatically graph the component values (<code>distance</code> and <code>angle</code> in our example).</li>
+<li><strong>Sidekick</strong> knows the units (<code>angle</code> can be automatically converted to degrees for easier understanding, for example).</li>
+<li>Less space is consumed in the capture file.</li>
+<li>The run-time overhead for a serializer is just a fraction of the CPU cost of <code>toString()</code>.</li>
+<li>You can register serializers for classes of third party libraries that you use (e.g., Road Runner's <code>Pose2d</code> class) where it's not feasible to add a <code>toString()</code> method.</li>
+</ul>
 
 
 

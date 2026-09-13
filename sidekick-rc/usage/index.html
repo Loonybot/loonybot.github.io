@@ -559,10 +559,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dont-turn-off-the-robot-while-an-opmode-is-running" class="md-nav__link">
+  <a href="#typical-development-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Don't Turn Off the Robot While an OpMode is Running
+        Typical development workflow
       
     </span>
   </a>
@@ -570,10 +570,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#if-you-hit-a-sidekick-bug" class="md-nav__link">
+  <a href="#sidekick-automatically-captures-every-opmode-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        If You Hit a Sidekick Bug
+        Sidekick automatically captures every opMode run
       
     </span>
   </a>
@@ -581,22 +581,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#disabling-sidekick" class="md-nav__link">
+  <a href="#sidekick-saves-can-be-composed-of-multiple-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disabling Sidekick
+        Sidekick saves can be composed of multiple files
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Disabling Sidekick">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sidekick-can-be-disabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sidekick can be disabled
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sidekick can be disabled">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1-disable-with-ui" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Disable With UI
+        1. Disable with UI
       
     </span>
   </a>
@@ -607,7 +618,7 @@
   <a href="#2-disable-with-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Disable With API
+        2. Disable with API
       
     </span>
   </a>
@@ -1081,10 +1092,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dont-turn-off-the-robot-while-an-opmode-is-running" class="md-nav__link">
+  <a href="#typical-development-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Don't Turn Off the Robot While an OpMode is Running
+        Typical development workflow
       
     </span>
   </a>
@@ -1092,10 +1103,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#if-you-hit-a-sidekick-bug" class="md-nav__link">
+  <a href="#sidekick-automatically-captures-every-opmode-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        If You Hit a Sidekick Bug
+        Sidekick automatically captures every opMode run
       
     </span>
   </a>
@@ -1103,22 +1114,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#disabling-sidekick" class="md-nav__link">
+  <a href="#sidekick-saves-can-be-composed-of-multiple-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disabling Sidekick
+        Sidekick saves can be composed of multiple files
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Disabling Sidekick">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sidekick-can-be-disabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sidekick can be disabled
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sidekick can be disabled">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1-disable-with-ui" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Disable With UI
+        1. Disable with UI
       
     </span>
   </a>
@@ -1129,7 +1151,7 @@
   <a href="#2-disable-with-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Disable With API
+        2. Disable with API
       
     </span>
   </a>
@@ -1159,36 +1181,43 @@
 
 
 <h1 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h1>
-<h2 id="dont-turn-off-the-robot-while-an-opmode-is-running">Don't Turn Off the Robot While an OpMode is Running<a class="headerlink" href="#dont-turn-off-the-robot-while-an-opmode-is-running" title="Permanent link">&para;</a></h2>
-<p><strong>Sidekick</strong> has to hook opMode termination in order to successfully save its logs. 
-If you turn off the robot while an opMode is still running, all of the Sidekick data for that run will be lost, except for Logcat data. It's best practice to always press stop (⏹) on the Driver Station once an opMode is complete, before turning off the robot. Autonomous opModes that properly terminate are not a problem, and for TeleOp opModes Sidekick will automatically stop capturing and save its files two minutes and one second after Start (▶) is pressed.</p>
-<h2 id="if-you-hit-a-sidekick-bug">If You Hit a Sidekick Bug<a class="headerlink" href="#if-you-hit-a-sidekick-bug" title="Permanent link">&para;</a></h2>
-<p>If you have a <code>.sidekick</code> capture file that causes <strong>Sidekick</strong> to crash, please email it to <a href="mailto:bugreport@loonybot.com">bugreport@loonybot.com</a> along with a description of the problem. 
-We hate crashes but love bug reports that can reproduce them, so we always make it our top priority to fix such bugs when we get them. 
-However, please consider your privacy: <strong>Sidekick</strong> itself does not save any <em>Personally Identifiable Information</em>, but your opMode may output PII to the data that is recorded.
-Please be sure to send us only the <code>.sidekick</code> file and none of the video files.</p>
-<p>Bugs and suggestions can also be filed on <a href="https://github.com/Loonybot/SidekickRC/issues">GitHub</a>.</p>
-<h2 id="disabling-sidekick">Disabling Sidekick<a class="headerlink" href="#disabling-sidekick" title="Permanent link">&para;</a></h2>
-<p>Sometimes, you may want to disable <strong>Sidekick</strong> on the robot without fully removing its library.
-Although it is legal to have it enabled for FTC competitions, and even though it is designed to have minimal impact on your code's performance, it may sometimes cause unexpected behavior from its many system hooks, or it might simply have a bug that prevents your code from operating correctly.</p>
-<p>As such, there are two ways to disable <strong>Sidekick</strong>'s library.</p>
-<h3 id="1-disable-with-ui">1. Disable With UI<a class="headerlink" href="#1-disable-with-ui" title="Permanent link">&para;</a></h3>
-<p><strong>Sidekick</strong> automatically adds an opMode called <em>Enable/Disable Sidekick</em> to your list of opModes. Run it and press ▶ on the Driver Station to toggle its mode.</p>
-<h3 id="2-disable-with-api">2. Disable With API<a class="headerlink" href="#2-disable-with-api" title="Permanent link">&para;</a></h3>
-<p><strong>Sidekick</strong> can be disabled by a call to <code>Sk.disable()</code> from your robot code. Because <strong>Sidekick</strong> needs to know this state early in the boot process, you can only call <code>Sk.disable()</code> (or <code>Sk.enable()</code>) from a method marked with the <code>@OnCreate</code> annotation, like this:</p>
-<div class="highlight"><span class="filename">Disable Sidekick</span><pre><span></span><code><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">"unused"</span><span class="p">)</span>
-<span class="kd">class</span> <span class="nc">ConfigureSidekick</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nd">@OnCreate</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">Context</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Sk</span><span class="p">.</span><span class="na">disable</span><span class="p">();</span><span class="w"> </span><span class="c1">// Temporarily disable Sidekick</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>This <code>@OnCreate</code> declaration can appear anywhere in your code and will apply globally to all of your opModes. </p>
+<h2 id="typical-development-workflow">Typical development workflow<a class="headerlink" href="#typical-development-workflow" title="Permanent link">&para;</a></h2>
+<p>During robot development, a typical <strong>Sidekick</strong> workflow is:</p>
+<ol>
+<li>Use the Connect button to establish a Wi-Fi and ADB connection between your laptop and the robot.</li>
+<li>Use Android Studio to deploy a new build of your robot code.</li>
+<li>Run your opMode and monitor current draw using <strong>Sidekick</strong>'s real-time graphing.</li>
+<li>When the opMode is done, press the download button to import its captured data into <strong>Sidekick</strong> and analyze what happened.</li>
+</ol>
+<h2 id="sidekick-automatically-captures-every-opmode-run">Sidekick automatically captures every opMode run<a class="headerlink" href="#sidekick-automatically-captures-every-opmode-run" title="Permanent link">&para;</a></h2>
+<p>Captures are stored on your Robot Controller's internal storage. <strong>Sidekick</strong> will try to ensure that at least 100 MB of free space is available at the beginning of every opMode by deleting the oldest <strong>Sidekick</strong> captures to make room. You can also configure <strong>Sidekick</strong> to delete captures after a certain number of days via the <a href="../api-reference/#sksetretentiondays">Sk.setRetentionDays()</a> API.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Be very careful of any code placed within the <code>@OnCreate</code> method as it executes during robot startup. If it raises an uncaught exception, it will cause an endless cycle of reboots and you'll need to reset the robot via means such as the <code>REV Hardware Client</code>.</p>
+<p>Don't turn off the robot while an opMode is running
+<strong>Sidekick</strong> has to hook opMode termination in order to successfully save its logs. 
+If you turn off the robot while an opMode is still running, all of the Sidekick data for that run will be lost, except for Logcat data. It's best practice to always press stop (⏹) on the Driver Station once an opMode is complete, before turning off the robot. Autonomous opModes that properly terminate are not a problem, and for TeleOp opModes Sidekick will automatically stop capturing and save its files two minutes and one second after Start (▶) is pressed.</p>
 </div>
+<h2 id="sidekick-saves-can-be-composed-of-multiple-files">Sidekick saves can be composed of multiple files<a class="headerlink" href="#sidekick-saves-can-be-composed-of-multiple-files" title="Permanent link">&para;</a></h2>
+<p>When you save a file in <strong>Sidekick</strong>, the bulk of the data is stored in a file with a <code>.sidekick</code> file extension while videos are kept as separate files. 
+So if, for example, you saved your capture as "Test1" and it had a Limelight video along with an imported spectator video, you would get three files with the following names:</p>
+<ul>
+<li>Test1.sidekick</li>
+<li>Test1 limelight.lvc</li>
+<li>Test1 spectator.mp4</li>
+</ul>
+<p>When <strong>Sidekick</strong> loads a <code>.sidekick</code> file, it looks for the companion video files in the same directory with the same root name.
+As such, if you use the Operating System to copy or move your capture, copy or move all of the component files together. 
+If you use the OS to rename your capture, rename all of the component files similarly. 
+If <strong>Sidekick</strong> can't find a companion video file, the capture can still be analyzed but the video won't be viewable.</p>
+<p>All of the companion video files except for the Limelight <code>.lvc</code> file can be played in a standard video player. The <code>.lvc</code> Limelight video capture file is a custom MJPEG container.</p>
+<h2 id="sidekick-can-be-disabled">Sidekick can be disabled<a class="headerlink" href="#sidekick-can-be-disabled" title="Permanent link">&para;</a></h2>
+<p>Sometimes, you may want to disable <strong>Sidekick</strong> on the robot without fully removing its library.
+Although it is legal to have it enabled for FTC competitions, and even though it is designed to have minimal impact on your code's performance, it may sometimes cause unexpected behavior from its many system hooks, or it might simply have a bug that prevents your code from operating correctly.</p>
+<p>As such, there are two ways to disable <strong>Sidekick</strong>.</p>
+<h3 id="1-disable-with-ui">1. Disable with UI<a class="headerlink" href="#1-disable-with-ui" title="Permanent link">&para;</a></h3>
+<p><strong>Sidekick</strong> automatically adds an opMode called <em>Enable/Disable Sidekick</em> to your list of opModes. Run it and press Start (▶) on the Driver Station to toggle the mode.</p>
+<h3 id="2-disable-with-api">2. Disable with API<a class="headerlink" href="#2-disable-with-api" title="Permanent link">&para;</a></h3>
+<p><strong>Sidekick</strong> can be disabled by a call to <a href="../api-reference/#skenable"><code>Sk.enable(false)</code></a> from your robot code. </p>
 
 
 
