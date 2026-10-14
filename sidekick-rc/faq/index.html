@@ -377,8 +377,6 @@
       
         
       
-        
-      
     
     
     
@@ -434,34 +432,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Defining Sidekick RC
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -996,13 +966,13 @@
 <summary>How do I report a Sidekick bug?</summary>
 <p>If you have a <code>.sidekick</code> capture file that causes <strong>Sidekick</strong> to crash or that captures a run-time failure, please email it to <a href="mailto:bugreport@loonybot.com">bugreport@loonybot.com</a> along with a description of the problem. 
 We hate crashes but love bug reports that can reproduce them, so we always make it our top priority to fix such bugs when we get them. 
-However, please consider your privacy: <strong>Sidekick</strong> itself does not save any <em>Personally Identifiable Information</em>, but your opMode may output PII to the data that is recorded.
+However, please consider your privacy: <strong>Sidekick</strong> itself does not save any <em>Personally Identifiable Information</em>, but your op mode may output PII to the data that is recorded.
 Please be sure to send us only the <code>.sidekick</code> file and none of the video files.</p>
 <p>Bugs and suggestions can also be filed on <a href="https://github.com/Loonybot/SidekickRC/issues">GitHub</a>.</p>
 </details>
 <details class="faq">
 <summary>My robot spontaneously reboots and Sidekick only shows Logcat data. What can I do?</summary>
-<p>Problems where the robot reboots in the middle of an opMode are tough to fix.
+<p>Problems where the robot reboots in the middle of an op mode are tough to fix.
 <strong>Sidekick</strong> can't cleanly shut down and save its capture data when this happens, so you lose a lot of context. </p>
 <p><strong>Sidekick</strong> <em>does</em> automatically show Logcat data leading up to the crash, however. 
 Logcat data is still available because it uses a system mechanism that frequently flushes its data to permanent storage so it's more impervious to memory getting wiped. <strong>Sidekick</strong> shows all Logcat data from boot to the last message recorded. </p>
